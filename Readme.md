@@ -1,6 +1,5 @@
-╔═════════════════════════════════════════════╗
-      ║ RESERVATION AND MANAGEMENT SYSTEM       ║
-╚═════════════════════════════════════════════╝
+**RESERVATION AND MANAGEMENT SYSTEM**       
+      
 ----
 
 ```
