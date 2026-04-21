@@ -1,1 +1,32 @@
 #include<stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include<ctype.h>
+
+
+typedef enum { SINGLE = 1, DOUBLE, SUITE, DELUXE, PENTHOUSE } RoomType;
+typedef enum { AVAILABLE = 0, OCCUPIED, MAINTENANCE } RoomStatus;
+typedef enum { CONFIRMED = 1, CANCELLED, CHECKED_IN, CHECKED_OUT } BookingStatus;
+
+//structure for storing rooms info 
+typedef struct {
+    int room_number;
+    RoomType type;
+    RoomStatus status;
+    float rate_per_night;
+    int capacity;
+    int floor;
+    char amenities[120];
+} Room;
+
+//structure for storing customer info
+typedef struct {
+    int  customer_id;
+    char name[20];
+    char email[20];
+    char phone[12];
+    char address[120];
+    char id_proof[40];
+    char registration_date[12];
+    int  total_bookings;
+} Customer;
