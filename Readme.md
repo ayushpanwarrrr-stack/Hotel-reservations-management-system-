@@ -68,4 +68,3 @@ The **Hotel Reservation Management System** is a terminal-based C application th
 *   Programming Language: C
 
 ***
-```
