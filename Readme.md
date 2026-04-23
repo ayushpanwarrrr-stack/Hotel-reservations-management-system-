@@ -66,5 +66,3 @@ The **Hotel Reservation Management System** is a terminal-based C application th
 *   Course: B.Tech
 *   Project Type: Project for PBL
 *   Programming Language: C
-
-***
