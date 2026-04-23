@@ -1,13 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 // total rooms in hotel
 #define TOTAL_ROOMS 10
-// admin pass
+
+// adminpass
 #define ADMIN_PASSWORD "admin123"
+
 // file names
 #define ROOMS_FILE "rooms.txt"
 #define BOOKINGS_FILE "bookings.txt"
+
 // room structure
 struct Room {
     int number;
@@ -26,11 +30,13 @@ struct Booking {
     float total;
     int active;  // 1=active 0=cancelled
 };
+
 // global arrays
 struct Room rooms[TOTAL_ROOMS];
 struct Booking bookings[100];
 int num_rooms = 0;
 int num_bookings = 0;
+
 // function declarations
 void setup_rooms();
 void save_rooms();
@@ -47,6 +53,8 @@ void admin_view_all();
 void admin_update_price();
 void admin_view_bookings();
 void pressEnter();
+
+
 // main function
 int main()
 {
@@ -103,6 +111,7 @@ int main()
             pressEnter();
         }
     }
+
 // setup default rooms - runs only once
 void setup_rooms()
 {
