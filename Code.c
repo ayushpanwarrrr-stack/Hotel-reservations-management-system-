@@ -550,3 +550,11 @@ void admin_update_price()
     printf("  Done! Price updated.\n");
     pressEnter();
 }
+
+// wait for enter key
+void pressEnter()
+{
+    printf("\n  Press Enter to continue...");
+    while (getchar() != '\n');
+    getchar();
+}
