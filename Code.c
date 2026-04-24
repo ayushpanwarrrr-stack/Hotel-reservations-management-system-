@@ -111,6 +111,14 @@ int main()
             pressEnter();
         }
     }
+        else {
+            printf("  Invalid choice.\n");
+            pressEnter();
+        }
+    }
+
+    return 0;
+}
 
 // setup default rooms - runs only once
 void setup_rooms()
