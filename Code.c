@@ -483,3 +483,29 @@ void admin_view_all()
     pressEnter();
 }
 
+
+// show all bookings
+void admin_view_bookings()
+{
+    int i;
+
+    system("cls || clear");
+    printf("\n  === ALL BOOKINGS ===\n\n");
+
+    if (num_bookings == 0) {
+        printf("  No bookings yet.\n");
+        pressEnter();
+        return;
+    }
+
+    for (i = 0; i < num_bookings; i++) {
+        printf("  ID: %-5d Room: %-4d Name: %-20s Nights: %-3d Total: Rs.%-8.2f [%s]\n",
+            bookings[i].id, bookings[i].room_number,
+            bookings[i].name, bookings[i].nights,
+            bookings[i].total,
+            bookings[i].active ? "Active" : "Cancelled");
+    }
+
+    printf("\n  Total: %d bookings\n", num_bookings);
+    pressEnter();
+}
