@@ -460,3 +460,22 @@ void admin_menu()
         }
     }
 }
+
+
+// show all rooms with status
+void admin_view_all()
+{
+    int i;
+
+    system("cls || clear");
+    printf("\n  === ALL ROOMS ===\n\n");
+    printf("  %-10s %-10s %-12s %-10s\n", "Room No.", "Type", "Price/Night", "Status");
+    printf("  ------------------------------------------\n");
+
+    for (i = 0; i < num_rooms; i++) {
+        printf("  %-10d %-10s Rs. %-8.2f %s\n",
+            rooms[i].number, rooms[i].type,
+            rooms[i].price,
+            rooms[i].is_booked ? "Booked" : "Free");
+    }
+
