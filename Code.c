@@ -478,4 +478,8 @@ void admin_view_all()
             rooms[i].price,
             rooms[i].is_booked ? "Booked" : "Free");
     }
+        printf("  ------------------------------------------\n");
+    printf("  Total rooms: %d\n", num_rooms);
+    pressEnter();
+}
 
