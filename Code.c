@@ -217,5 +217,246 @@ void load_bookings()
 
     fclose(f);
 }
-    return 0;
+
+// show rooms that are free
+void check_available()
+{
+    int i;
+    int found = 0;
+
+    system("cls || clear");
+    printf("\n  === AVAILABLE ROOMS ===\n\n");
+    printf("  %-10s %-10s %-12s\n", "Room No.", "Type", "Price/Night");
+    printf("  ------------------------------------\n");
+
+    for (i = 0; i < num_rooms; i++) {
+        if (rooms[i].is_booked == 0) {
+            printf("  %-10d %-10s Rs. %.2f\n", rooms[i].number, rooms[i].type, rooms[i].price);
+            found = 1;
+        }
+    }
+
+    if (found == 0)
+        printf("  No rooms free right now.\n");
+
+    printf("  ------------------------------------\n");
+    pressEnter();
+}
+
+// book a room
+void book_room()
+{
+    int i, roomNo, nights;
+    int idx = -1;  // index of room
+    char cname[50], ph[15];
+
+    system("cls || clear");
+    printf("\n  === BOOK A ROOM ===\n\n");
+
+    // show available rooms first
+    check_available();
+
+    printf("\n  Enter room number: ");
+    scanf("%d", &roomNo);
+
+    // find room in array
+    for (i = 0; i < num_rooms; i++) {
+        if (rooms[i].number == roomNo) {
+            idx = i;
+            break;
+        }
+    }
+
+    if (idx == -1) {
+        printf("  Room not found.\n");
+        pressEnter();
+        return;
+    }
+
+    if (rooms[idx].is_booked == 1) {
+        printf("  This room is already booked!\n");
+        pressEnter();
+        return;
+    }
+
+    // take customer details
+    printf("  Your name: ");
+    scanf(" %[^\n]", cname);
+    printf("  Phone no: ");
+    scanf("%s", ph);
+    printf("  No. of nights: ");
+    scanf("%d", &nights);
+
+    if (nights < 1) {
+        printf("  Nights should be at least 1.\n");
+        pressEnter();
+        return;
+    }
+
+    // store booking
+    bookings[num_bookings].id = 1000 + num_bookings + 1;
+    bookings[num_bookings].room_number = roomNo;
+    strncpy(bookings[num_bookings].name, cname, 49);
+    strncpy(bookings[num_bookings].phone, ph, 14);
+    bookings[num_bookings].nights = nights;
+    bookings[num_bookings].total = nights * rooms[idx].price;
+    bookings[num_bookings].active = 1;
+
+    // mark room as booked
+    rooms[idx].is_booked = 1;
+
+    num_bookings++;
+
+    printf("\n  Booking Done!\n");
+    printf("  Booking ID : %d\n", bookings[num_bookings-1].id);
+    printf("  Room       : %d (%s)\n", roomNo, rooms[idx].type);
+    printf("  Name       : %s\n", cname);
+    printf("  Nights     : %d\n", nights);
+    printf("  Total Cost : Rs. %.2f\n", bookings[num_bookings-1].total);
+    printf("\n  Please note your Booking ID = %d\n", bookings[num_bookings-1].id);
+
+    pressEnter();
+}
+
+// cancel booking
+void cancel_booking()
+{
+    int i, j;
+    int bid, confirm;
+    int idx = -1;
+
+    system("cls || clear");
+    printf("\n  === CANCEL BOOKING ===\n\n");
+    printf("  Enter Booking ID: ");
+    scanf("%d", &bid);
+
+    for (i = 0; i < num_bookings; i++) {
+        if (bookings[i].id == bid && bookings[i].active == 1) {
+            idx = i;
+            break;
+        }
+    }
+
+    if (idx == -1) {
+        printf("  Booking ID not found or already cancelled.\n");
+        pressEnter();
+        return;
+    }
+
+    printf("\n  Name   : %s\n", bookings[idx].name);
+    printf("  Room   : %d\n", bookings[idx].room_number);
+    printf("  Nights : %d\n", bookings[idx].nights);
+    printf("  Total  : Rs. %.2f\n", bookings[idx].total);
+    printf("\n  Are you sure? (1=Yes, 2=No): ");
+    scanf("%d", &confirm);
+
+    if (confirm == 1) {
+        bookings[idx].active = 0;
+
+        // free the room
+        for (j = 0; j < num_rooms; j++) {
+            if (rooms[j].number == bookings[idx].room_number) {
+                rooms[j].is_booked = 0;
+                break;
+            }
+        }
+
+        printf("\n  Booking cancelled.\n");
+    }
+    else {
+        printf("\n  Okay, not cancelled.\n");
+    }
+
+    pressEnter();
+}
+
+// view booking details
+void view_booking()
+{
+    int i, bid;
+    int idx = -1;
+
+    system("cls || clear");
+    printf("\n  === VIEW BOOKING ===\n\n");
+    printf("  Enter Booking ID: ");
+    scanf("%d", &bid);
+
+    for (i = 0; i < num_bookings; i++) {
+        if (bookings[i].id == bid) {
+            idx = i;
+            break;
+        }
+    }
+
+    if (idx == -1) {
+        printf("  Booking not found.\n");
+        pressEnter();
+        return;
+    }
+
+    printf("\n  --------------------------\n");
+    printf("  Booking ID : %d\n", bookings[idx].id);
+    printf("  Name       : %s\n", bookings[idx].name);
+    printf("  Phone      : %s\n", bookings[idx].phone);
+    printf("  Room No.   : %d\n", bookings[idx].room_number);
+    printf("  Nights     : %d\n", bookings[idx].nights);
+    printf("  Total Cost : Rs. %.2f\n", bookings[idx].total);
+    printf("  Status     : %s\n", bookings[idx].active ? "ACTIVE" : "CANCELLED");
+    printf("  --------------------------\n");
+
+    pressEnter();
+}
+
+// admin login and menu
+void admin_menu()
+{
+    char pass[30];
+    int ch, tries = 0;
+
+    system("cls || clear");
+    printf("\n  === ADMIN LOGIN ===\n\n");
+
+    while (tries < 3) {
+        printf("  Enter Password: ");
+        scanf("%s", pass);
+
+        if (strcmp(pass, ADMIN_PASSWORD) == 0)
+            break;
+
+        tries++;
+        printf("  Wrong password! (%d/3)\n", tries);
+    }
+
+    if (tries == 3) {
+        printf("  Access denied.\n");
+        pressEnter();
+        return;
+    }
+
+    // admin menu loop
+    while (1) {
+        system("cls || clear");
+        printf("\n  === ADMIN PANEL ===\n\n");
+        printf("  1. View All Rooms\n");
+        printf("  2. View All Bookings\n");
+        printf("  3. Update Room Price\n");
+        printf("  4. Back\n");
+        printf("\n  Choice: ");
+        scanf("%d", &ch);
+
+        if (ch == 1)
+            admin_view_all();
+        else if (ch == 2)
+            admin_view_bookings();
+        else if (ch == 3) {
+            admin_update_price();
+            save_rooms();
+        }
+        else if (ch == 4)
+            return;
+        else {
+            printf("  Invalid.\n");
+            pressEnter();
+        }
+    }
 }
