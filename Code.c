@@ -509,3 +509,44 @@ void admin_view_bookings()
     printf("\n  Total: %d bookings\n", num_bookings);
     pressEnter();
 }
+
+// update price of a room
+void admin_update_price()
+{
+    int i, roomNo;
+    int idx = -1;
+    float newPrice;
+
+    system("cls || clear");
+    admin_view_all();
+
+    printf("  Enter room number to change price: ");
+    scanf("%d", &roomNo);
+
+    for (i = 0; i < num_rooms; i++) {
+        if (rooms[i].number == roomNo) {
+            idx = i;
+            break;
+        }
+    }
+
+    if (idx == -1) {
+        printf("  Room not found.\n");
+        pressEnter();
+        return;
+    }
+
+    printf("  Current price: Rs. %.2f\n", rooms[idx].price);
+    printf("  New price: Rs. ");
+    scanf("%f", &newPrice);
+
+    if (newPrice <= 0) {
+        printf("  Price should be more than 0.\n");
+        pressEnter();
+        return;
+    }
+
+    rooms[idx].price = newPrice;
+    printf("  Done! Price updated.\n");
+    pressEnter();
+}
