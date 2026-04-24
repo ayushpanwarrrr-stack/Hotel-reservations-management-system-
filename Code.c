@@ -111,12 +111,6 @@ int main()
             pressEnter();
         }
     }
-        else {
-            printf("  Invalid choice.\n");
-            pressEnter();
-        }
-    }
-
     return 0;
 }
 
