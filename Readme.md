@@ -29,18 +29,20 @@ The **Hotel Reservation Management System** is a terminal-based C application th
 ## Room Configuration
 
 ```
-
-╔══════════════════════════════╗
-║      ROOM CONFIGURATION      ║
-╠═══════╦════════════╦═════════╣
-║ Floor ║ Type       ║  Rate   ║
-╠═══════╬════════════╬═════════╣
-║   1   ║ Single     ║ ₹2,500  ║
-║   2   ║ Double     ║ ₹4,500  ║
-║   3   ║ Suite      ║ ₹8,500  ║
-║   4   ║ Deluxe     ║ ₹12,000 ║
-║   5   ║ Penthouse  ║ ₹25,000 ║
-╚═══════╩════════════╩═════════╝
+  ___________________________________
+  Room No.   Type       Price/Night 
+  -----------------------------------
+  101        Single     Rs. 800.00
+  102        Single     Rs. 800.00
+  103        Single     Rs. 800.00
+  104        Single     Rs. 800.00
+  201        Double     Rs. 1500.00
+  202        Double     Rs. 1500.00
+  203        Double     Rs. 1500.00
+  301        Suite      Rs. 3000.00
+  302        Suite      Rs. 3000.00
+  303        Suite      Rs. 3000.00
+  ___________________________________
 
 ````
 
@@ -48,15 +50,16 @@ The **Hotel Reservation Management System** is a terminal-based C application th
 
 ## Team Members
 
-    ╔══════════════════════════════════════╗
-    ║            TEAM MEMBERS              ║
-    ╠══════════════════╦═══════════════════╣
-    ║ Role             ║ Name              ║
-    ╠══════════════════╬═══════════════════╣
-    ║ Team Leader      ║ Ayush Panwar      ║
-    ║ Member 2         ║ Aditya Nautiyal   ║
-    ║ Member 3         ║ Aman Payal        ║
-    ╚══════════════════╩═══════════════════╝
+    ___________________________________
+              TEAM MEMBERS  
+    -----------------------------------   
+     Role              Name             
+    -----------------------------------
+     Team Leader       Ayush Panwar     
+     Member 2          Aditya Nautiyal  
+     Member 3          Aman Payal       
+    ____________________________________
+    
 
 ***
 
