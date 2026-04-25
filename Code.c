@@ -74,9 +74,9 @@ int main()
         system("cls || clear");
 
         printf("\n");
-        printf("  ================================\n");
-        printf("      SUNSHINE HOTEL SYSTEM      \n");
-        printf("  ================================\n");
+        printf("  ==========================================\n");
+        printf("           AAA HOTEL WELCOMES YOU !!!    \n");
+        printf("  ===========================================\n");
         printf("  1. Check Available Rooms\n");
         printf("  2. Book a Room\n");
         printf("  3. Cancel Booking\n");
@@ -103,7 +103,7 @@ int main()
         else if (ch == 5)
             admin_menu();
         else if (ch == 6) {
-            printf("\n  Bye bye!\n\n");
+            printf("\n  Glad you liked it, have a great day ahead!!\n\n");
             break;
         }
         else {
