@@ -104,9 +104,9 @@ int main()
 void setup_rooms()
 {
     int i;
-    int s[] = {101, 102, 103, 104}; 
-    int d[] = {201, 202, 203};      
-    int su[] = {301, 302, 303};     
+    int s[] = {101,102,103,104}; 
+    int d[] = {201,202, 203};      
+    int su[] = {301, 302,303};     
 
     num_rooms = 0;
 
@@ -154,7 +154,8 @@ void load_rooms()
 {
     FILE *f = fopen(ROOMS_FILE, "r");
     if (f == NULL)
-        return;  // file not found, skip
+        printf("file not found\n");
+        return;
 
     num_rooms = 0;
     while (fscanf(f, "%d %s %f %d", &rooms[num_rooms].number, rooms[num_rooms].type,&rooms[num_rooms].price, &rooms[num_rooms].is_booked) == 4) {
@@ -210,8 +211,7 @@ void check_available()
     printf("\n  === AVAILABLE ROOMS ===\n\n");
     printf("  %-10s %-10s %-12s\n", "Room No.", "Type", "Price/Night");
     printf("  ------------------------------------\n");
-
-    for (i = 0; i < num_rooms; i++) {
+for (i = 0; i < num_rooms; i++) {
         if (rooms[i].is_booked == 0) {
             printf("  %-10d %-10s Rs. %.2f\n", rooms[i].number, rooms[i].type, rooms[i].price);
             found = 1;
