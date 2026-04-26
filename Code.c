@@ -48,15 +48,13 @@ void admin_update_price();
 void admin_view_bookings();
 void pressEnter();
 
-// main function
 int main()
 {
     int ch;
-    // load data from files
+
     load_rooms();
     load_bookings();
 
-    // if first time, make default rooms
     if (num_rooms == 0) {
         setup_rooms();
         save_rooms();
@@ -107,7 +105,6 @@ int main()
     return 0;
 }
 
-// setup default rooms - runs only once
 void setup_rooms()
 {
     int i;
@@ -142,7 +139,7 @@ void setup_rooms()
     }
 }
 
-// save rooms to file
+
 void save_rooms()
 {
     int i;
@@ -159,7 +156,7 @@ void save_rooms()
     fclose(f);
 }
 
-// load rooms from file
+
 void load_rooms()
 {
     FILE *f = fopen(ROOMS_FILE, "r");
@@ -174,7 +171,7 @@ void load_rooms()
 
     fclose(f);
 }
-// save bookings to file
+
 void save_bookings()
 {
     int i;
