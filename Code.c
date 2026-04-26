@@ -12,7 +12,7 @@ struct Room {
     float price;
     int is_booked;
 };
-// booking structure
+
 struct Booking {
     int id;
     int room_number;
@@ -74,7 +74,7 @@ int main()
         scanf("%d", &ch);
         if (ch == 1)
             check_available();
-        else if (ch == 2) {
+        else if (ch == 2){
             book_room();
             save_rooms();
             save_bookings();
@@ -84,8 +84,9 @@ int main()
             save_rooms();
             save_bookings();
         }
-        else if (ch == 4)
+        else if (ch == 4){
             view_booking();
+        }
         else if (ch == 5)
             admin_menu();
         else if (ch == 6) {
@@ -103,16 +104,16 @@ int main()
 void setup_rooms()
 {
     int i;
-    int s[] = {101, 102, 103, 104};   // single rooms
-    int d[] = {201, 202, 203};        // double rooms
-    int su[] = {301, 302, 303};       // suites
+    int s[] = {101, 102, 103, 104}; 
+    int d[] = {201, 202, 203};      
+    int su[] = {301, 302, 303};     
 
     num_rooms = 0;
 
     for (i = 0; i < 4; i++) {
-        rooms[num_rooms].number = s[i];
+        rooms[num_rooms].number=s[i];
         strcpy(rooms[num_rooms].type, "Single");
-        rooms[num_rooms].price = 800.0;
+        rooms[num_rooms].price=800.0;
         rooms[num_rooms].is_booked = 0;
         num_rooms++;
     }
@@ -124,8 +125,7 @@ void setup_rooms()
         rooms[num_rooms].is_booked = 0;
         num_rooms++;
     }
-
-    for (i = 0; i < 3; i++) {
+for (i = 0; i < 3; i++) {
         rooms[num_rooms].number = su[i];
         strcpy(rooms[num_rooms].type, "Suite");
         rooms[num_rooms].price = 3000.0;
@@ -133,7 +133,6 @@ void setup_rooms()
         num_rooms++;
     }
 }
-
 
 void save_rooms()
 {
@@ -147,7 +146,6 @@ void save_rooms()
     for (i = 0; i < num_rooms; i++) {
         fprintf(f, "%d %s %.2f %d\n", rooms[i].number, rooms[i].type, rooms[i].price, rooms[i].is_booked);
     }
-
     fclose(f);
 }
 
@@ -159,8 +157,7 @@ void load_rooms()
         return;  // file not found, skip
 
     num_rooms = 0;
-    while (fscanf(f, "%d %s %f %d", &rooms[num_rooms].number, rooms[num_rooms].type,
-                  &rooms[num_rooms].price, &rooms[num_rooms].is_booked) == 4) {
+    while (fscanf(f, "%d %s %f %d", &rooms[num_rooms].number, rooms[num_rooms].type,&rooms[num_rooms].price, &rooms[num_rooms].is_booked) == 4) {
         num_rooms++;
     }
 
@@ -191,14 +188,12 @@ void load_bookings()
 {
     FILE *f = fopen(BOOKINGS_FILE, "r");
     if (f == NULL)
+        printf("error opening file \n");
         return;
 
     num_bookings = 0;
-    while (fscanf(f, "%d %d %s %s %d %f %d",
-                  &bookings[num_bookings].id, &bookings[num_bookings].room_number,
-                  bookings[num_bookings].name, bookings[num_bookings].phone,
-                  &bookings[num_bookings].nights, &bookings[num_bookings].total,
-                  &bookings[num_bookings].active) == 7) {
+    while (fscanf(f, "%d %d %s %s %d %f %d", &bookings[num_bookings].id, &bookings[num_bookings].room_number,bookings[num_bookings].name, bookings[num_bookings].phone,
+&bookings[num_bookings].nights, &bookings[num_bookings].total,&bookings[num_bookings].active) == 7) {
         num_bookings++;
     }
 
@@ -492,7 +487,6 @@ void admin_view_bookings()
             bookings[i].total,
             bookings[i].active ? "Active" : "Cancelled");
     }
-
     printf("\n  Total: %d bookings\n", num_bookings);
     pressEnter();
 }
