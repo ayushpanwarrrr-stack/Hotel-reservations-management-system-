@@ -90,7 +90,7 @@ int main()
         else if (ch == 5)
             admin_menu();
         else if (ch == 6) {
-            printf("\n  Glad you liked it, have a great day ahead!!\n\n MAKE SURE TO CLEAR ALL YOUR DUES BEFORE LEAVING OR ELSE YOU'LL BE BLACKLISTED 🙃 !!!");
+            printf("\n  Glad you liked it, have a great day ahead!!\n\n MAKE SURE TO CLEAR ALL YOUR DUES BEFORE LEAVING OR ELSE YOU'LL BE BLACKLISTED 🙃 !!!\n\n");
             break;
         }
         else {
@@ -118,7 +118,7 @@ void setup_rooms()
         num_rooms++;
     }
 
-    for (i = 0; i < 3; i++) {
+    for (i = 0; i<3;i++) {
         rooms[num_rooms].number = d[i];
         strcpy(rooms[num_rooms].type, "Double");
         rooms[num_rooms].price = 1500.0;
