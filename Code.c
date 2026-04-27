@@ -75,7 +75,7 @@ int main()
         if (ch == 1)
             check_available();
         else if (ch == 2){
-            book_room();        ₹
+            book_room();        
             save_rooms();
             save_bookings();
         }
@@ -99,7 +99,7 @@ int main()
         }
     }
     return 0;
-}
+}    
 
 void setup_rooms()
 {
