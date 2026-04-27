@@ -61,7 +61,7 @@ int main()
 
         printf("\n");
         printf("  ===================================================\n");
-        printf("           AAAq_GEHU HOTEL WELCOMES YOU 🙇 🙇 🙇 !!!    \n");
+        printf("           AAA_GEHU HOTEL WELCOMES YOU 🙇 🙇 🙇 !!!    \n");
         printf("  ===================================================\n");
         printf("  1. Check Available Rooms\n");
         printf("  2. Book a Room\n");
