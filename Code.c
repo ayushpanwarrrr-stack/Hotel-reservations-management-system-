@@ -53,7 +53,7 @@ int main()
     if (num_rooms == 0) {
         setup_rooms();
         save_rooms();
-        printf("First time setup done. Rooms created.\n");
+        printf("\t\n\nFirst time setup done.\n \t Rooms created.\t\n\n \t\tMake it double click just to prove you're a human\n\n");
         pressEnter();
     }
     while (1) {
