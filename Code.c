@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #define TOTAL_ROOMS 10
-#define ADMIN_PASSWORD "admin123"
+#define ADMIN_PASSWORD "b2"
 #define ROOMS_FILE "rooms.txt"
 #define BOOKINGS_FILE "bookings.txt"
 
@@ -57,11 +57,11 @@ int main()
         pressEnter();
     }
     while (1) {
-        system("cls || clear");
+        system( "cls || clear");
 
         printf("\n");
         printf("  ===================================================\n");
-        printf("           AAA_GEHU HOTEL WELCOMES YOU 🙇 🙇 🙇 !!!    \n");
+        printf("           AAAq_GEHU HOTEL WELCOMES YOU 🙇 🙇 🙇 !!!    \n");
         printf("  ===================================================\n");
         printf("  1. Check Available Rooms\n");
         printf("  2. Book a Room\n");
@@ -75,7 +75,7 @@ int main()
         if (ch == 1)
             check_available();
         else if (ch == 2){
-            book_room();
+            book_room();        ₹
             save_rooms();
             save_bookings();
         }
