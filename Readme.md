@@ -17,7 +17,6 @@ The **Hotel Reservation Management System** is a terminal-based C application th
 ### Admin Panel (Password Protected)
 - View All Rooms
 - Update Room Rate
-- Update Room Status
 - View All Bookings
 
 
