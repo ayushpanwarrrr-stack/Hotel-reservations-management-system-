@@ -22,7 +22,6 @@ The **Hotel Reservation Management System** is a terminal-based C application th
 - Update Room Status
 - View All Bookings
 - View All Customers
-- Revenue Report
 
 ---
 
