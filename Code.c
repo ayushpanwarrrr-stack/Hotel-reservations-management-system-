@@ -53,23 +53,23 @@ int main()
     if (num_rooms == 0) {
         setup_rooms();
         save_rooms();
-        printf("\t\n\nFirst time setup done.\n \t Rooms created.\t\n\n \t\tMake it double click just to prove you're a human\n\n");
+        printf("\t\n\nFirst time setup done.\n \t Rooms created.\t\n\n \t\tMake it double click just to prove you're a human🙂\n\n");
         pressEnter();
     }
     while (1) {
         system("cls || clear");
 
         printf("\n");
-        printf("  ==========================================\n");
-        printf("           AAA_GEHU HOTEL WELCOMES YOU !!!    \n");
-        printf("  ===========================================\n");
+        printf("  ===================================================\n");
+        printf("           AAA_GEHU HOTEL WELCOMES YOU 🙇🙇🙇!!!    \n");
+        printf("  ===================================================\n");
         printf("  1. Check Available Rooms\n");
         printf("  2. Book a Room\n");
         printf("  3. Cancel Booking\n");
         printf("  4. View My Booking\n");
         printf("  5. Admin Panel\n");
         printf("  6. Exit\n");
-        printf("  ================================\n");
+        printf("  ==================================================\n");
         printf("  Enter choice: ");
         scanf("%d", &ch);
         if (ch == 1)
@@ -90,11 +90,11 @@ int main()
         else if (ch == 5)
             admin_menu();
         else if (ch == 6) {
-            printf("\n  Glad you liked it, have a great day ahead!!\n\n");
+            printf("\n  Glad you liked it, have a great day ahead!!\n\n MAKE SURE TO CLEAR ALL YOUR DUES BEFORE LEAVING OR ELSE YOU'LL BE BLACKLISTED🙃!!!");
             break;
         }
         else {
-            printf("  Invalid choice.\n");
+            printf("Invalid choice.😭😭\n");
             pressEnter();
         }
     }
@@ -139,7 +139,7 @@ void save_rooms()
     int i;
     FILE *f = fopen(ROOMS_FILE, "w");
     if (f == NULL) {
-        printf("  Could not save rooms!\n");
+        printf("Could not save rooms!\n");
         return;
     }
 
@@ -170,7 +170,7 @@ void save_bookings()
     int i;
     FILE *f = fopen(BOOKINGS_FILE, "w");
     if (f == NULL) {
-        printf("  Could not save bookings!\n");
+        printf("Could not save bookings!\n");
         return;
     }
 
@@ -219,7 +219,7 @@ for (i = 0; i < num_rooms; i++) {
     }
 
     if (found == 0)
-        printf("  No rooms free right now.\n");
+        printf("\tSORRRRRYYYYYY!!\n \tNo rooms free right now.\n");
 
     printf("  ------------------------------------\n");
     pressEnter();
@@ -270,7 +270,7 @@ void book_room()
     scanf("%d", &nights);
 
     if (nights < 1) {
-        printf("  Nights should be at least 1.\n");
+        printf("Nights should be at least 1.😒\n");
         pressEnter();
         return;
     }
@@ -343,10 +343,10 @@ void cancel_booking()
             }
         }
 
-        printf("\n  Booking cancelled.\n");
+        printf("\n 😩Booking cancelled.\n");
     }
     else {
-        printf("\n  Okay, not cancelled.\n");
+        printf("\n Okay, not cancelled.😁\n");
     }
 
     pressEnter();
