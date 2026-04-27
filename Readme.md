@@ -13,15 +13,13 @@ The **Hotel Reservation Management System** is a terminal-based C application th
 - Cancel Booking
 - Check Room Availability
 - View My Booking
-- Check In / Check Out
 
 ### Admin Panel (Password Protected)
 - View All Rooms
-- Add New Room
 - Update Room Rate
 - Update Room Status
 - View All Bookings
-- View All Customers
+
 
 ---
 
